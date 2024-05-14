@@ -1,4 +1,4 @@
-# AI Driven e-Commerce
+# build serverless ecommerce application with genai
 
 this project is based on [litemall](https://github.com/linlinjava/litemall),We have made some modifications to it so
 that it can run correctly and efficiently on AWS Lambda.
