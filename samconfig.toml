@@ -17,7 +17,7 @@ lint = true
 [default.deploy.parameters]
 capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
-resolve_s3 = false
+resolve_s3 = true
 #s3_bucket = 'your-s3-bucket'
 #s3_prefix = '<your-s3-prefix>'
 
