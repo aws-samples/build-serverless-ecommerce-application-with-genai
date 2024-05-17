@@ -35,7 +35,7 @@ Resources:
         SubnetIds:
           - <your-subnet-ids-1>
           - <your-subnet-ids-2>
-      MemorySize: 8192
+      MemorySize: 2048
       Handler: run.sh
       CodeUri: litemall-all/
       Runtime: java17
