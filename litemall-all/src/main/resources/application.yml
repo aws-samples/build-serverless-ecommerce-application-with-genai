@@ -1,6 +1,4 @@
 spring:
-  config:
-    import: optional:file:.env[.properties]
   profiles:
     active: db, core, admin, wx
   messages:
