@@ -31,10 +31,10 @@ Resources:
     Properties:
       VpcConfig:
         SecurityGroupIds:
-          - sg-096e46689cbae7afc
+          - '{{resolve:ssm:/litemall/prod/vpc/application-security-group}}'
         SubnetIds:
-          - subnet-0dfdcfdd6ffa47d8b
-          - subnet-0c061a88b9ec47b28
+          - '{{resolve:ssm:/litemall/prod/vpc/private-subnet-one}}'
+          - '{{resolve:ssm:/litemall/prod/vpc/private-subnet-two}}'
       MemorySize: 2048
       Handler: run.sh
       CodeUri: litemall-all/
