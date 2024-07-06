@@ -71,7 +71,7 @@ Outputs:
     Description: "Moble Mall Site URL"
     Value: !Sub "https://${FunctionApiGateway}.execute-api.${AWS::Region}.${AWS::URLSuffix}/index.html"
   AdminWebHomepage:
-    Description: "Admin endpoint Homepage URL"
+    Description: "Admin Web Homepage URL"
     Value: !Sub "https://${FunctionApiGateway}.execute-api.${AWS::Region}.${AWS::URLSuffix}/mgmt/index.html"
   AdminApiURL:
     Description: "Admin endpoint API URL"
