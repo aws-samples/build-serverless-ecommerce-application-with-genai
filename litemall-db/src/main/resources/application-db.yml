@@ -7,10 +7,10 @@ pagehelper:
 spring:
   datasource:
     druid:
-      url: jdbc:mysql://<your-rds-mysql-writer-endpoint>:3306/litemall?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
+      url: jdbc:mysql://${DB_CLUSTER_ENDPOINT}:3306/litemall?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
       driver-class-name: com.mysql.cj.jdbc.Driver
-      username: litemall
-      password: litemall123456
+      username: ${DB_MASTER_USERNAME}
+      password: ${DB_MASTER_PASSWORD}
       initial-size: 2
       max-active: 16
       min-idle: 2

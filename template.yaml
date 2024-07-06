@@ -31,16 +31,14 @@ Resources:
     Properties:
       VpcConfig:
         SecurityGroupIds:
-          - <your-security-group-ids>
+          - sg-096e46689cbae7afc
         SubnetIds:
-          - <your-subnet-ids-1>
-          - <your-subnet-ids-2>
+          - subnet-0dfdcfdd6ffa47d8b
+          - subnet-0c061a88b9ec47b28
       MemorySize: 2048
       Handler: run.sh
       CodeUri: litemall-all/
       Runtime: java17
-      FunctionName: litemall-all
-      Role: "arn:aws:iam::<your-aws-account-id>:role/lambdaFunctionRole"
       AutoPublishAlias: live
       SnapStart:
         ApplyOn: PublishedVersions
@@ -50,6 +48,14 @@ Resources:
           READINESS_CHECK_PATH: /admin/index/index
           AWS_LAMBDA_EXEC_WRAPPER: /opt/bootstrap
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=4 -XX:+UseParallelGC
+          PORT: 8081
+          DB_CLUSTER_ENDPOINT: '{{resolve:ssm:/litemall/prod/db/cluster-endpoint}}'
+          DB_MASTER_USERNAME: '{{resolve:ssm:/litemall/prod/db/master-username}}'
+          DB_MASTER_PASSWORD: '{{resolve:ssm:/litemall/prod/db/master-password}}'
+          REDIS_CACHE_ENDPOINT: '{{resolve:ssm:/litemall/prod/redis/endpoint}}'
+      Policies:
+        - SSMParameterReadPolicy:
+            ParameterName: /litemall/prod/*
       Layers:
         - !Sub arn:aws:lambda:us-west-2:753240598075:layer:LambdaAdapterLayerX86:21
       Events:
