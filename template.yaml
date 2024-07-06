@@ -7,7 +7,7 @@ Description: >
 
 Globals:
   Function:
-    Timeout: 60
+    Timeout: 29
 
 Resources:
   # create api-gateway resource：https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-httpapi.html
