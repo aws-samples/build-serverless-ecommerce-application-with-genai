@@ -1,1 +1,4 @@
 .idea
+.aws-sam
+.env
+samconfig.toml

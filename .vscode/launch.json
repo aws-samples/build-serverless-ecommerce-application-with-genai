@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-Application<litemall-all>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.linlinjava.litemall.Application",
+      "projectName": "litemall-all",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

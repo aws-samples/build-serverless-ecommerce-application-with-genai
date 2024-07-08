@@ -8,10 +8,9 @@ spring:
       max-file-size: 20MB
       max-request-size: 20MB
   redis:
-    host: <your-elasticache-primary-endpoint>
+    host: ${REDIS_CACHE_ENDPOINT}
     port: 6379
     database: 0
-    password: awsshanghaisummit2024
     jedis:
       pool:
         max-active: 8
@@ -20,7 +19,7 @@ spring:
     ssl: true
 
 server:
-  port: 8080
+  port: 8081
   compression:
     enabled: true
     min-response-size: 2048
