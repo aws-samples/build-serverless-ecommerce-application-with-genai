@@ -29,6 +29,7 @@ Resources:
   litemallFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Tracing: Active
       VpcConfig:
         SecurityGroupIds:
           - '{{resolve:ssm:/litemall/prod/vpc/application-security-group}}'
@@ -56,6 +57,7 @@ Resources:
       Policies:
         - SSMParameterReadPolicy:
             ParameterName: /litemall/prod/*
+        - AWSXRayDaemonWriteAccess
       Layers:
         - !Sub arn:aws:lambda:us-west-2:753240598075:layer:LambdaAdapterLayerX86:21
       Events:
