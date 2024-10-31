@@ -5,10 +5,10 @@
       <h3>{{ $t('goods_edit.section.goods') }}</h3>
       <el-form ref="goods" :rules="rules" :model="goods" label-width="150px">
         <el-form-item :label="$t('goods_edit.form.goods_sn')" prop="goodsSn">
-          <el-input v-model="goods.goodsSn"/>
+          <el-input v-model="goods.goodsSn" />
         </el-form-item>
         <el-form-item :label="$t('goods_edit.form.name')" prop="name">
-          <el-input v-model="goods.name"/>
+          <el-input v-model="goods.name" />
         </el-form-item>
         <el-form-item :label="$t('goods_edit.form.counter_price')" prop="counterPrice">
           <el-input v-model="goods.counterPrice" placeholder="0.00">
@@ -44,7 +44,7 @@
             accept=".jpg,.jpeg,.png,.gif"
           >
             <img v-if="goods.picUrl" :src="goods.picUrl" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon"/>
+            <i v-else class="el-icon-plus avatar-uploader-icon" />
           </el-upload>
         </el-form-item>
 
@@ -60,12 +60,12 @@
             accept=".jpg,.jpeg,.png,.gif"
             list-type="picture-card"
           >
-            <i class="el-icon-plus"/>
+            <i class="el-icon-plus" />
           </el-upload>
         </el-form-item>
 
         <el-form-item :label="$t('goods_edit.form.unit')">
-          <el-input v-model="goods.unit" :placeholder="$t('goods_edit.placeholder.unit')"/>
+          <el-input v-model="goods.unit" :placeholder="$t('goods_edit.placeholder.unit')" />
         </el-form-item>
 
         <el-form-item :label="$t('goods_edit.form.keywords')">
@@ -82,27 +82,27 @@
             @blur="handleInputConfirm"
           />
           <el-button v-else class="button-new-keyword" type="primary" @click="showInput">{{
-              $t('app.button.add')
-            }}
+            $t('app.button.add')
+          }}
           </el-button>
         </el-form-item>
 
         <el-form-item :label="$t('goods_edit.form.category_id')">
-          <el-cascader :options="categoryList" expand-trigger="hover" clearable @change="handleCategoryChange"/>
+          <el-cascader :options="categoryList" expand-trigger="hover" clearable @change="handleCategoryChange" />
         </el-form-item>
 
         <el-form-item :label="$t('goods_edit.form.brand_id')">
           <el-select v-model="goods.brandId" clearable>
-            <el-option v-for="item in brandList" :key="item.value" :label="item.label" :value="item.value"/>
+            <el-option v-for="item in brandList" :key="item.value" :label="item.label" :value="item.value" />
           </el-select>
         </el-form-item>
 
         <el-form-item :label="$t('goods_edit.form.brief')">
-          <el-input v-model="goods.brief"/>
+          <el-input v-model="goods.brief" />
         </el-form-item>
 
         <el-form-item :label="$t('goods_edit.form.detail')">
-          <editor v-model="goods.detail" :init="editorInit"/>
+          <editor v-model="goods.detail" :init="editorInit" />
         </el-form-item>
       </el-form>
     </el-card>
@@ -118,14 +118,14 @@
         </el-col>
         <el-col v-if="multipleSpec" :span="10">
           <el-button :plain="true" type="primary" @click="handleSpecificationShow">{{
-              $t('app.button.create')
-            }}
+            $t('app.button.create')
+          }}
           </el-button>
         </el-col>
       </el-row>
 
       <el-table :data="specifications">
-        <el-table-column property="specification" :label="$t('goods_edit.table.specification_name')"/>
+        <el-table-column property="specification" :label="$t('goods_edit.table.specification_name')" />
         <el-table-column property="value" :label="$t('goods_edit.table.specification_value')">
           <template slot-scope="scope">
             <el-tag type="primary">
@@ -164,10 +164,10 @@
           style="width: 400px; margin-left:50px;"
         >
           <el-form-item :label="$t('goods_edit.form.specification_name')" prop="specification">
-            <el-input v-model="specForm.specification"/>
+            <el-input v-model="specForm.specification" />
           </el-form-item>
           <el-form-item :label="$t('goods_edit.form.specification_value')" prop="value">
-            <el-input v-model="specForm.value"/>
+            <el-input v-model="specForm.value" />
           </el-form-item>
           <el-form-item :label="$t('goods_edit.form.specification_pic_url')" prop="picUrl">
             <el-upload
@@ -179,7 +179,7 @@
               accept=".jpg,.jpeg,.png,.gif"
             >
               <img v-if="specForm.picUrl" :src="specForm.picUrl" class="avatar">
-              <i v-else class="el-icon-plus avatar-uploader-icon"/>
+              <i v-else class="el-icon-plus avatar-uploader-icon" />
             </el-upload>
           </el-form-item>
         </el-form>
@@ -200,19 +200,23 @@
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column property="price" width="100" :label="$t('goods_edit.table.product_price')"/>
-        <el-table-column property="number" width="100" :label="$t('goods_edit.table.product_number')"/>
+        <el-table-column property="price" width="100" :label="$t('goods_edit.table.product_price')" />
+        <el-table-column property="number" width="100" :label="$t('goods_edit.table.product_number')" />
         <el-table-column property="url" width="100" :label="$t('goods_edit.table.product_url')">
           <template slot-scope="scope">
             <img v-if="scope.row.url" :src="scope.row.url" width="40">
           </template>
         </el-table-column>
-        <el-table-column align="center" :label="$t('goods_edit.table.product_actions')" width="100"
-                         class-name="small-padding fixed-width">
+        <el-table-column
+          align="center"
+          :label="$t('goods_edit.table.product_actions')"
+          width="100"
+          class-name="small-padding fixed-width"
+        >
           <template slot-scope="scope">
             <el-button type="primary" size="mini" @click="handleProductShow(scope.row)">{{
-                $t('app.button.settings')
-              }}
+              $t('app.button.settings')
+            }}
             </el-button>
           </template>
         </el-table-column>
@@ -233,10 +237,10 @@
             </el-tag>
           </el-form-item>
           <el-form-item :label="$t('goods_edit.form.product_price')" prop="price">
-            <el-input v-model="productForm.price"/>
+            <el-input v-model="productForm.price" />
           </el-form-item>
           <el-form-item :label="$t('goods_edit.form.product_number')" prop="number">
-            <el-input v-model="productForm.number"/>
+            <el-input v-model="productForm.number" />
           </el-form-item>
           <el-form-item :label="$t('goods_edit.form.product_url')" prop="url">
             <el-upload
@@ -248,7 +252,7 @@
               accept=".jpg,.jpeg,.png,.gif"
             >
               <img v-if="productForm.url" :src="productForm.url" class="avatar">
-              <i v-else class="el-icon-plus avatar-uploader-icon"/>
+              <i v-else class="el-icon-plus avatar-uploader-icon" />
             </el-upload>
           </el-form-item>
         </el-form>
@@ -263,14 +267,18 @@
       <h3>{{ $t('goods_edit.section.attributes') }}</h3>
       <el-button type="primary" @click="handleAttributeShow">{{ $t('app.button.create') }}</el-button>
       <el-table :data="attributes">
-        <el-table-column property="attribute" :label="$t('goods_edit.table.attribute_name')"/>
-        <el-table-column property="value" :label="$t('goods_edit.table.attribute_value')"/>
-        <el-table-column align="center" :label="$t('goods_edit.table.attribute_actions')" width="100"
-                         class-name="small-padding fixed-width">
+        <el-table-column property="attribute" :label="$t('goods_edit.table.attribute_name')" />
+        <el-table-column property="value" :label="$t('goods_edit.table.attribute_value')" />
+        <el-table-column
+          align="center"
+          :label="$t('goods_edit.table.attribute_actions')"
+          width="100"
+          class-name="small-padding fixed-width"
+        >
           <template slot-scope="scope">
             <el-button type="danger" size="mini" @click="handleAttributeDelete(scope.row)">{{
-                $t('app.button.delete')
-              }}
+              $t('app.button.delete')
+            }}
             </el-button>
           </template>
         </el-table-column>
@@ -286,10 +294,10 @@
           style="width: 400px; margin-left:50px;"
         >
           <el-form-item :label="$t('goods_edit.form.attribute_name')" prop="attribute">
-            <el-input v-model="attributeForm.attribute"/>
+            <el-input v-model="attributeForm.attribute" />
           </el-form-item>
           <el-form-item :label="$t('goods_edit.form.attribute_value')" prop="value">
-            <el-input v-model="attributeForm.value"/>
+            <el-input v-model="attributeForm.value" />
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
@@ -301,9 +309,9 @@
 
     <el-card class="box-card">
       <h3>{{ $t('app.menu.genai_copy') }}</h3>
-      <el-input v-model="textPrompt" type="textPrompt"/>
+      <el-input v-model="textPrompt" type="textPrompt" />
       <el-button type="primary" @click="generateText">{{ $t('app.button.generate') }}</el-button>
-      <el-input v-model="textAreaValue" type="textarea"/>
+      <el-input v-model="textAreaValue" type="textarea" />
     </el-card>
 
     <div class="op-container">
@@ -360,15 +368,15 @@
 </style>
 
 <script>
-import {publishGoods, listCatAndBrand, askAssistant} from '@/api/goods'
-import {createStorage, uploadPath} from '@/api/storage'
+import { publishGoods, listCatAndBrand, askAssistant } from '@/api/goods'
+import { createStorage, uploadPath } from '@/api/storage'
 import Editor from '@tinymce/tinymce-vue'
-import {MessageBox} from 'element-ui'
-import {getToken} from '@/utils/auth'
+import { MessageBox } from 'element-ui'
+import { getToken } from '@/utils/auth'
 
 export default {
   name: 'GoodsCreate',
-  components: {Editor},
+  components: { Editor },
 
   data() {
     return {
@@ -380,20 +388,20 @@ export default {
       textAreaValue: '',
       categoryList: [],
       brandList: [],
-      goods: {picUrl: '', gallery: [], isHot: false, isNew: true, isOnSale: true},
+      goods: { picUrl: '', gallery: [], isHot: false, isNew: true, isOnSale: true },
       specVisiable: false,
-      specForm: {specification: '', value: '', picUrl: ''},
+      specForm: { specification: '', value: '', picUrl: '' },
       multipleSpec: false,
-      specifications: [{specification: '规格', value: '标准', picUrl: ''}],
+      specifications: [{ specification: '规格', value: '标准', picUrl: '' }],
       productVisiable: false,
-      productForm: {id: 0, specifications: [], price: 0.00, number: 0, url: ''},
-      products: [{id: 0, specifications: ['标准'], price: 0.00, number: 0, url: ''}],
+      productForm: { id: 0, specifications: [], price: 0.00, number: 0, url: '' },
+      products: [{ id: 0, specifications: ['标准'], price: 0.00, number: 0, url: '' }],
       attributeVisiable: false,
-      attributeForm: {attribute: '', value: ''},
+      attributeForm: { attribute: '', value: '' },
       attributes: [],
       rules: {
-        goodsSn: [{required: true, message: '商品编号不能为空', trigger: 'blur'}],
-        name: [{required: true, message: '商品名称不能为空', trigger: 'blur'}]
+        goodsSn: [{ required: true, message: '商品编号不能为空', trigger: 'blur' }],
+        name: [{ required: true, message: '商品名称不能为空', trigger: 'blur' }]
       },
       editorInit: {
         language: 'zh_CN',
@@ -401,7 +409,7 @@ export default {
         convert_urls: false,
         plugins: ['advlist anchor autolink autosave code codesample colorpicker colorpicker contextmenu directionality emoticons fullscreen hr image imagetools importcss insertdatetime link lists media nonbreaking noneditable pagebreak paste preview print save searchreplace spellchecker tabfocus table template textcolor textpattern visualblocks visualchars wordcount'],
         toolbar: ['searchreplace bold italic underline strikethrough alignleft aligncenter alignright outdent indent  blockquote undo redo removeformat subscript superscript code codesample', 'hr bullist numlist link image charmap preview anchor pagebreak insertdatetime media table emoticons forecolor backcolor fullscreen'],
-        images_upload_handler: function (blobInfo, success, failure) {
+        images_upload_handler: function(blobInfo, success, failure) {
           const formData = new FormData()
           formData.append('file', blobInfo.blob())
           createStorage(formData).then(res => {
@@ -425,7 +433,7 @@ export default {
   },
 
   methods: {
-    init: function () {
+    init: function() {
       listCatAndBrand().then(response => {
         this.categoryList = response.data.data.categoryList
         this.brandList = response.data.data.brandList
@@ -434,11 +442,11 @@ export default {
     handleCategoryChange(value) {
       this.goods.categoryId = value[value.length - 1]
     },
-    handleCancel: function () {
+    handleCancel: function() {
       this.$store.dispatch('tagsView/delView', this.$route)
-      this.$router.push({path: '/goods/list'})
+      this.$router.push({ path: '/goods/list' })
     },
-    handlePublish: function () {
+    handlePublish: function() {
       const finalGoods = {
         goods: this.goods,
         specifications: this.specifications,
@@ -451,7 +459,7 @@ export default {
           message: '创建成功'
         })
         this.$store.dispatch('tagsView/delView', this.$route)
-        this.$router.push({path: '/goods/list'})
+        this.$router.push({ path: '/goods/list' })
       }).catch(response => {
         MessageBox.alert('业务错误：' + response.data.errmsg, '警告', {
           confirmButtonText: '确定',
@@ -478,10 +486,10 @@ export default {
       this.newKeywordVisible = false
       this.newKeyword = ''
     },
-    uploadPicUrl: function (response) {
+    uploadPicUrl: function(response) {
       this.goods.picUrl = response.data.url
     },
-    uploadOverrun: function () {
+    uploadOverrun: function() {
       this.$message({
         type: 'error',
         message: '上传文件个数超出限制!最多上传5张图片!'
@@ -492,7 +500,7 @@ export default {
         this.goods.gallery.push(response.data.url)
       }
     },
-    handleRemove: function (file, fileList) {
+    handleRemove: function(file, fileList) {
       for (var i = 0; i < this.goods.gallery.length; i++) {
         // 这里存在两种情况
         // 1. 如果所删除图片是刚刚上传的图片，那么图片地址是file.response.data.url
@@ -510,20 +518,20 @@ export default {
         }
       }
     },
-    specChanged: function (label) {
+    specChanged: function(label) {
       if (label === false) {
-        this.specifications = [{specification: '规格', value: '标准', picUrl: ''}]
-        this.products = [{id: 0, specifications: ['标准'], price: 0.00, number: 0, url: ''}]
+        this.specifications = [{ specification: '规格', value: '标准', picUrl: '' }]
+        this.products = [{ id: 0, specifications: ['标准'], price: 0.00, number: 0, url: '' }]
       } else {
         this.specifications = []
         this.products = []
       }
     },
-    uploadSpecPicUrl: function (response) {
+    uploadSpecPicUrl: function(response) {
       this.specForm.picUrl = response.data.url
     },
     handleSpecificationShow() {
-      this.specForm = {specification: '', value: '', picUrl: ''}
+      this.specForm = { specification: '', value: '', picUrl: '' }
       this.specVisiable = true
     },
     handleSpecificationAdd() {
@@ -596,7 +604,7 @@ export default {
           var z = specValues[x][combination[x]]
           specifications.push(this.specifications[z].value)
         }
-        products[productsIndex] = {id: productsIndex, specifications: specifications, price: 0.00, number: 0, url: ''}
+        products[productsIndex] = { id: productsIndex, specifications: specifications, price: 0.00, number: 0, url: '' }
         productsIndex++
 
         index++
@@ -624,7 +632,7 @@ export default {
       this.productForm = Object.assign({}, row)
       this.productVisiable = true
     },
-    uploadProductUrl: function (response) {
+    uploadProductUrl: function(response) {
       this.productForm.url = response.data.url
     },
     handleProductEdit() {
@@ -638,14 +646,15 @@ export default {
       this.productVisiable = false
     },
     generateText() {
-      const prompt = '' + this.textPrompt // TODO Prompt
+      const prompt1 = 'This is a marketing email about: '
+      const prompt2 = ', highlighting the products selling points and advantages. The email needs to attract readers interest in [product name] and promote purchases. The copy should revolve around [product function/use] for promotion and elaboration. Tone and Style Prompts, Use an enthusiastic and engaging tone to arouse readers desire to buy. Employ vivid metaphors, rhetoric, and hyperbole to enhance persuasiveness. Maintain a concise and impactful writing style, highlighting product strengths and avoiding verbosity. Call-to-Action Prompts: Include a clear call-to-action at the end, such as Buy Now or Limited Quantity, Act Fast. Provide a direct purchase link to lower the barrier to purchase. Consider offering time-limited discounts, free gifts, or other incentives to motivate action. Other Considerations Adjust the tone, focus, and language based on the specific product and target audience. Ensure truthful and credible content, avoiding exaggerations or misleading statements. Let me know if you need any other assistance or have additional requirements for generating effective e-commerce marketing email copy.' // replace prompt, Note: The prompt determines the generation result!
+      const prompt = prompt1 + this.textPrompt + prompt2
       askAssistant({
         prompt: prompt
       }).then(response => {
         this.textAreaValue = response.data.data.list
       })
     },
-
     handleAttributeShow() {
       this.attributeForm = {}
       this.attributeVisiable = true

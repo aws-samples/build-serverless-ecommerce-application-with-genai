@@ -1,5 +1,4 @@
 package org.linlinjava.litemall.admin.web;
-
 import org.linlinjava.litemall.admin.dto.Prompt;
 import org.linlinjava.litemall.admin.service.BedrockService;
 import org.linlinjava.litemall.core.util.ResponseUtil;
