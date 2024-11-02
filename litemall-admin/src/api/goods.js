@@ -24,6 +24,14 @@ export function askAssistant(data) {
   })
 }
 
+export function askClaude(data) {
+  return request({
+    url: '/bedrock/claude',
+    method: 'post',
+    data
+  })
+}
+
 export function publishGoods(data) {
   return request({
     url: '/goods/create',
@@ -36,7 +44,7 @@ export function detailGoods(id) {
   return request({
     url: '/goods/detail',
     method: 'get',
-    params: {id}
+    params: { id }
   })
 }
 

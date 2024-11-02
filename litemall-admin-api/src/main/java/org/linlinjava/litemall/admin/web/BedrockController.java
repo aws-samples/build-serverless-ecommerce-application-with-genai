@@ -4,7 +4,7 @@ import org.linlinjava.litemall.admin.service.BedrockService;
 import org.linlinjava.litemall.core.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 
@@ -21,5 +21,12 @@ public class BedrockController {
         List<String> response = bedrockService.invokeMistral7B(prompt.getPrompt());
         return ResponseUtil.okList(response);
     }
-
+    
+    @PostMapping("/claude")
+    public Object askClaude(@RequestParam("prompt") String prompt, @RequestParam("image") MultipartFile image) {
+        String response = bedrockService.invokeClaude3(prompt, image);
+        return ResponseUtil.ok(response);
+  
+    }
 }
+
